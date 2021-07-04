@@ -10,9 +10,14 @@
   "author": "Aniket Prakash <b218004@iiit-bh.ac.in>",
   "license": "ISC",
   "dependencies": {
+    "connect-flash": "^0.1.1",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "mongoose": "^5.13.0",
-    "nodemon": "^2.0.9"
+    "nodemon": "^2.0.9",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0"
   }
 }
