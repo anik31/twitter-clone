@@ -1,3 +1,26 @@
-<%- include('partials/header') %> 
-    <h1>Twitter clone</h1>
-<%- include('partials/footer') %>
+<%- include('./partials/header') %> 
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>  
+<div class="row">
+    <%- include("./partials/navbar") %> 
+    <div class="main-container col-10 col-md-8 col-lg-6">
+        <h1 class="fw-bold title-container">Home</h1>
+        <%- include("./partials/modal") %>
+        <div class="mb-3 post-container">
+            <div class="userimage-container">
+                <img src="images/profilePic.jpg" alt="User's profile image">
+            </div>
+            <div class="textarea-container">
+                <textarea id="tweet-text" cols="30" rows="3" placeholder="What's happening?"></textarea>
+                <button id="submit-post-button" type="submit">Post</button>
+            </div>    
+        </div>
+        <div class="mb-3">
+            <div class="all-tweets"></div>
+        </div>
+    </div>
+    <div class="d-none d-md-block col-md-2 col-lg-4 side">sidebar</div>
+</div>
+<script src="/js/common.js"></script>
+<%- include('./partials/footer') %>

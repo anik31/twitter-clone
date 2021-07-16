@@ -1,15 +1,13 @@
 <%- include('../partials/header') %> 
-    
+<link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
 <div class="container">
     <div class="row">
         <div class="col-lg-3"></div>
-        <div class="col-lg-6">
-            <h6 class="display-6 mt-3">Sign Up</h6>
-            <div class="mb-3">
-                <% if(message) {%>
-                    <p> <%= message %> </p>
-                <% } %>  
-            </div>
+        <div class="col-lg-6 mt-5 login-container">
+            <h6 class="display-6 text-center">Sign Up</h6>
+            <%- include("../partials/flash") %> 
             <form action="/register" method="post">
                 <div class="mb-3">
                     <input type="text" class="form-control" name="firstname" placeholder="First-Name">
@@ -29,7 +27,9 @@
                 <div class="mb-3">
                     <p><a href="/login">Already have an account? Login here</a></p>
                 </div>
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
             </form>
         </div>
         <div class="col-lg-3"></div>

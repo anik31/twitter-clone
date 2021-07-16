@@ -22,9 +22,11 @@ mongoose.connect('mongodb://localhost:27017/twitter-clone', {
 app.set('view engine','ejs')
 app.use(express.static(path.join(__dirname+'/public')))
 app.use(express.urlencoded({extended:true}))
+app.use(express.json())
 
 //Routes
 const auth = require("./routes/auth")
+const post = require("./routes/api/posts")
 
 app.use(session({
     secret: 'lenovoideapad',
@@ -38,8 +40,14 @@ app.use(passport.session())
 passport.use(new localStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
-
+app.use((req, res, next) => {
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
+    res.locals.currentUser = req.user;
+    next();
+})
 app.use(auth)
+app.use(post)
   
 app.get('/',isLoggedIn,(req,res) => res.render('home'))
 

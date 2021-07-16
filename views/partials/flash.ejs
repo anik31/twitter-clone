@@ -1,0 +1,10 @@
+<div class="mb-3 text-center">
+    <%if(success && success.length){%>
+      <p class="alert alert-danger container" style="margin:3% auto;text-align: center;max-width: 80%;"><%=success%></p>
+    <%}%>
+  </div>
+  <div class="mb-3 text-center">
+    <%if(error && error.length){%>
+      <p class="alert alert-danger container" style="margin:3% auto;text-align: center;max-width: 80%;"><%=error%></p>
+    <%}%>
+</div>

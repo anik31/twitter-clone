@@ -17,6 +17,7 @@ router.post('/register',async(req,res)=>{
         username : req.body.username
         }
         const newUser = await User.register(user,req.body.password)
+        req.flash("success","Registered Successfully,Please Login to continue")
         res.send(newUser)
     }catch(err){
         req.flash('error',err.message)
@@ -27,7 +28,8 @@ router.post('/register',async(req,res)=>{
 router.get('/login',(req,res)=> res.render('auth/login'))
 router.post('/login', passport.authenticate('local',
 {
-    failureRedirect : '/login'
+    failureRedirect : '/login',
+    failureFlash:true
 }),(req,res)=> res.redirect('/'))
 
 //logout
